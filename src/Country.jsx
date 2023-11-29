@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Country = ({ countryInfo }) => {
   return (
-    <Link to="/CountryDetails">
+    <Link to={`/countryDetails/${countryInfo.name.common}`}>
       <div className="country" key={countryInfo.name.common}>
         <img src={countryInfo.flags.png} alt={countryInfo.name.common} />
         <div className="country-info">

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Country } from "./Country";
-import { CountryDetails } from "./CountryDetails";
 
 export const Home = ({ data }) => {
   const [show, setShow] = useState(false);
