@@ -1,15 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export const Country = () => {
+export const Country = ({ countryInfo }) => {
   return (
-    <div className="country">
-      <img src="" alt="" />
-      <div className="country-info">
-        <h2>Germany</h2>
-        <p>population</p>
-        <p>region</p>
-        <p>capital</p>
+    <Link to="/CountryDetails">
+      <div className="country" key={countryInfo.name.common}>
+        <img src={countryInfo.flags.png} alt={countryInfo.name.common} />
+        <div className="country-info">
+          <h2>{countryInfo.name.common}</h2>
+          <p>Population: {countryInfo.population}</p>
+          <p>Region: {countryInfo.region}</p>
+          <p>Capital: {countryInfo.capital}</p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
