@@ -110,3 +110,27 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+ul {
+  display: flex;
+  column-gap: 0.5rem;
+  align-items: center;
+}
+
+li {
+  list-style: none;
+  background-color: var(--DARKBLUE);
+  padding: 0.5rem 1rem;
+}
+
+.country-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5rem;
+}
+
+.country-details img {
+  display: block;
+  object-fit: contain;
+  width: 100%;
+}
