@@ -35,7 +35,7 @@ export const Home = ({ data }) => {
           .toLowerCase()
           .includes(searchQuery.toLowerCase())
       );
-      console.log(searchResults);
+
       return searchResults.filter(
         (countryInfo) => region === "" || countryInfo.region === region
       );
