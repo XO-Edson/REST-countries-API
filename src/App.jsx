@@ -17,7 +17,6 @@ function App() {
       try {
         const response = await axios.get(API);
         setData(response.data);
-        console.log(response.data);
       } catch (err) {
         console.error("Error fetching data:", err);
       }
