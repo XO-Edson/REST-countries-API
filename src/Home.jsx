@@ -28,6 +28,26 @@ export const Home = ({ data }) => {
     setShow(!show);
   };
 
+  const filterCountries = () => {
+    if (searchQuery) {
+      const searchResults = data.filter((countryInfo) =>
+        countryInfo.name.common
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase())
+      );
+      console.log(searchResults);
+      return searchResults.filter(
+        (countryInfo) => region === "" || countryInfo.region === region
+      );
+    } else {
+      return data.filter(
+        (countryInfo) => region === "" || countryInfo.region === region
+      );
+    }
+  };
+
+  const filteredCountries = filterCountries();
+
   return (
     <>
       <div className="search-bar">
@@ -54,21 +74,9 @@ export const Home = ({ data }) => {
       </div>
 
       <div className="countries-container">
-        {filteredData
-          ? filteredData.map((countryInfo, index) => (
-              <div
-                key={index}
-                style={{ display: countryInfo ? "block" : "none" }}
-              >
-                <Country key={index} countryInfo={countryInfo} />
-              </div>
-            ))
-          : data.map((countryInfo, index) => {
-              if (region === "" || countryInfo.region === region) {
-                return <Country key={index} countryInfo={countryInfo} />;
-              }
-              return null;
-            })}
+        {filteredCountries.map((countryInfo, index) => (
+          <Country key={index} countryInfo={countryInfo} />
+        ))}
       </div>
     </>
   );
