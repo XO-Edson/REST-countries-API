@@ -56,14 +56,21 @@ export const CountryDetails = ({ data }) => {
         <div>
           <h2>{countryInfo.name.common}</h2>
 
-          <p>Native Name : {getNativeName()}</p>
-          <p>Population : {countryInfo.population}</p>
-          <p>Region : {countryInfo.region}</p>
-          <p>Sub Region :{countryInfo.subregion}</p>
-          <p>Capital :{countryInfo.capital}</p>
-          <p>Top Level Domain :{countryInfo.tld}</p>
-          <p>Currencies : {getCurrency()}</p>
-          <p>Languages :{getlanguages()}</p>
+          <div className="details-info">
+            <div>
+              <p>Native Name : {getNativeName()}</p>
+              <p>Population : {countryInfo.population}</p>
+              <p>Region : {countryInfo.region}</p>
+              <p>Sub Region :{countryInfo.subregion}</p>
+              <p>Capital :{countryInfo.capital}</p>
+            </div>
+
+            <div>
+              <p>Top Level Domain :{countryInfo.tld}</p>
+              <p>Currencies : {getCurrency()}</p>
+              <p>Languages :{getlanguages()}</p>
+            </div>
+          </div>
 
           <div className="borders">
             <ul>

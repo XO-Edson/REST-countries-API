@@ -89,6 +89,7 @@ header {
 .country {
   width: 250px;
   height: 100%;
+  border-radius: 5px;
   display: grid;
   grid-template-rows: 1fr 1fr;
   background-color: var(--DARKBLUE);
@@ -150,4 +151,57 @@ button {
   padding: 0.3rem 1.5rem;
   background-color: var(--DARKBLUE);
   color: inherit;
+}
+
+.details-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.borders {
+  margin-top: 5rem;
+  padding-bottom: 3rem;
+}
+
+/* SMALLER SCREENS */
+
+@media screen and (max-width: 500px) {
+  header {
+    padding: 1.5rem 1rem;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    row-gap: 2.5rem;
+  }
+
+  .country-details {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.7fr 1fr;
+  }
+
+  ul {
+    flex-wrap: wrap;
+    row-gap: 1rem;
+  }
+  .details-info {
+    flex-direction: column;
+    row-gap: 2.5rem;
+  }
+}
+
+/* LIGHT MODE */
+@media (prefers-color-scheme: light) {
+  body {
+    background: var(--LIGHT-MODE-BG);
+    color: var(--DARK-BLUE-TXT);
+  }
+
+  input {
+    background-color: var(--DARK-GRAY);
+  }
 }

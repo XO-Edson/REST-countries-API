@@ -9,6 +9,7 @@ import { CountryDetails } from "./CountryDetails";
 
 function App() {
   const [data, setData] = useState([]);
+  const [darkmode, setDarkMode] = useState(true);
   const API =
     "https://restcountries.com/v3.1/all?fields=name,flags,population,region,subregion,languages,capital,borders,tld,currencies";
 
@@ -27,7 +28,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header darkMode={darkmode} setDarkMode={setDarkMode} />
 
       <Routes>
         <Route path="/" element={<Home data={data} />} />
