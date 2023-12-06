@@ -50,6 +50,7 @@ header {
 
 .search-bar input {
   padding: 0.5rem 1rem;
+  padding-left: 40px;
   background-color: var(--DARKBLUE);
   color: inherit;
   border: none;
@@ -57,6 +58,20 @@ header {
   max-width: 500px;
   height: 50px;
   border-radius: 5px;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  top: 35%;
+  left: 10px;
+}
+
+.icon {
+  padding-right: 0.5rem;
 }
 
 .search-bar input::placeholder {

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Country } from "./Country";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 export const Home = ({ data, darkMode }) => {
   const [show, setShow] = useState(false);
@@ -51,14 +53,18 @@ export const Home = ({ data, darkMode }) => {
   return (
     <>
       <div className="search-bar">
-        <input
-          className={!darkMode ? "light" : ""}
-          type="text"
-          name="search"
-          placeholder="Search for a country..."
-          value={searchQuery}
-          onChange={handleSearchChange}
-        />
+        <div className="input-with-icon">
+          <input
+            className={!darkMode ? "light" : ""}
+            type="text"
+            name="search"
+            placeholder="Search for a country..."
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
+          <FontAwesomeIcon icon={faMagnifyingGlass} className="input-icon" />
+        </div>
+
         <div className="dropdown-menu">
           <button onClick={toggleDropdown} className={!darkMode ? "light" : ""}>
             Filter by region
