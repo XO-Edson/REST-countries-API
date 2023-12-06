@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Country } from "./Country";
 
-export const Home = ({ data }) => {
+export const Home = ({ data, darkMode }) => {
   const [show, setShow] = useState(false);
   const [region, setRegion] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
@@ -52,6 +52,7 @@ export const Home = ({ data }) => {
     <>
       <div className="search-bar">
         <input
+          className={!darkMode ? "light" : ""}
           type="text"
           name="search"
           placeholder="Search for a country..."
@@ -59,23 +60,50 @@ export const Home = ({ data }) => {
           onChange={handleSearchChange}
         />
         <div className="dropdown-menu">
-          <button onClick={toggleDropdown}>Filter by region</button>
+          <button onClick={toggleDropdown} className={!darkMode ? "light" : ""}>
+            Filter by region
+          </button>
           <div
-            className="menu-items"
+            className={`menu-items ${!darkMode ? "light" : ""}`}
             style={{ display: show ? "block" : "none" }}
           >
-            <li onClick={() => handleRegionChange("Europe")}>Europe</li>
-            <li onClick={() => handleRegionChange("Africa")}>Africa</li>
-            <li onClick={() => handleRegionChange("Asia")}>Asia</li>
-            <li onClick={() => handleRegionChange("Americas")}>Americas</li>
-            <li onClick={() => handleRegionChange("Oceania")}>Oceania</li>
+            <li
+              onClick={() => handleRegionChange("Europe")}
+              className={!darkMode ? "light" : ""}
+            >
+              Europe
+            </li>
+            <li
+              onClick={() => handleRegionChange("Africa")}
+              className={!darkMode ? "light" : ""}
+            >
+              Africa
+            </li>
+            <li
+              onClick={() => handleRegionChange("Asia")}
+              className={!darkMode ? "light" : ""}
+            >
+              Asia
+            </li>
+            <li
+              onClick={() => handleRegionChange("Americas")}
+              className={!darkMode ? "light" : ""}
+            >
+              Americas
+            </li>
+            <li
+              onClick={() => handleRegionChange("Oceania")}
+              className={!darkMode ? "light" : ""}
+            >
+              Oceania
+            </li>
           </div>
         </div>
       </div>
 
       <div className="countries-container">
         {filteredCountries.map((countryInfo, index) => (
-          <Country key={index} countryInfo={countryInfo} />
+          <Country key={index} countryInfo={countryInfo} darkMode={darkMode} />
         ))}
       </div>
     </>

@@ -26,16 +26,25 @@ function App() {
     fetchData();
   }, []);
 
+  /* LIGHT/DARK MODE THEME (BODY) */
+  useEffect(() => {
+    if (!darkmode) {
+      document.body.classList.add("light");
+    } else {
+      document.body.classList.remove("light");
+    }
+  }, [darkmode]);
+
   return (
     <>
       <Header darkMode={darkmode} setDarkMode={setDarkMode} />
 
       <Routes>
-        <Route path="/" element={<Home data={data} />} />
+        <Route path="/" element={<Home data={data} darkMode={darkmode} />} />
 
         <Route
           path="/CountryDetails/:name"
-          element={<CountryDetails data={data} />}
+          element={<CountryDetails data={data} darkMode={darkmode} />}
         />
         <Route path="*" element={<Country />} />
       </Routes>

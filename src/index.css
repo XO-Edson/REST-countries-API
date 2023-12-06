@@ -105,6 +105,10 @@ header {
   padding: 1rem;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .countries-container {
   display: flex;
   justify-content: space-around;
@@ -126,7 +130,7 @@ ul {
 li {
   list-style: none;
   background-color: var(--DARKBLUE);
-  padding: 0.5rem 1rem;
+  padding: 0.3rem;
 }
 
 .country-details {
@@ -151,6 +155,7 @@ button {
   padding: 0.3rem 1.5rem;
   background-color: var(--DARKBLUE);
   color: inherit;
+  cursor: pointer;
 }
 
 .details-info {
@@ -196,12 +201,84 @@ button {
 
 /* LIGHT MODE */
 @media (prefers-color-scheme: light) {
-  body {
+  body,
+  button {
     background: var(--LIGHT-MODE-BG);
     color: var(--DARK-BLUE-TXT);
   }
 
-  input {
-    background-color: var(--DARK-GRAY);
+  .search-bar input {
+    background: var(--LIGHT-MODE-BG);
+    box-shadow: 0 2px 4px hsla(0, 0%, 52%, 0.3);
   }
+
+  header {
+    background: var(--LIGHT-MODE-BG);
+    color: var(--DARK-BLUE-TXT);
+    box-shadow: 0 2px 4px hsla(0, 0%, 52%, 0.3);
+  }
+
+  .country {
+    background: var(--LIGHT-MODE-BG);
+    color: var(--DARK-BLUE-TXT);
+    box-shadow: 0 2px 4px hsla(0, 0%, 52%, 0.2);
+  }
+
+  .dropdown-menu button,
+  .dropdown-menu .menu-items {
+    background: var(--LIGHT-MODE-BG);
+    color: var(--DARK-BLUE-TXT);
+    box-shadow: 0 2px 4px hsla(0, 0%, 52%, 0.3);
+  }
+
+  li {
+    background: var(--LIGHT-MODE-BG);
+    color: var(--DARK-BLUE-TXT);
+  }
+
+  button,
+  .borders li {
+    box-shadow: 0 2px 4px hsla(0, 0%, 52%, 0.3);
+  }
+}
+
+/* LIGHT MODE (MANUAL TOGGLE) */
+body.light,
+button.light {
+  background: var(--LIGHT-MODE-BG);
+  color: var(--DARK-BLUE-TXT);
+}
+
+.search-bar input.light {
+  background: var(--LIGHT-MODE-BG);
+  box-shadow: 0 2px 4px hsla(0, 0%, 52%, 0.3);
+}
+
+header.light {
+  background: var(--LIGHT-MODE-BG);
+  color: var(--DARK-BLUE-TXT);
+  box-shadow: 0 2px 4px hsla(0, 0%, 52%, 0.3);
+}
+
+.country.light {
+  background: var(--LIGHT-MODE-BG);
+  color: var(--DARK-BLUE-TXT);
+  box-shadow: 0 2px 4px hsla(0, 0%, 52%, 0.2);
+}
+
+.dropdown-menu button.light,
+.dropdown-menu .menu-items.light {
+  background: var(--LIGHT-MODE-BG);
+  color: var(--DARK-BLUE-TXT);
+  box-shadow: 0 2px 4px hsla(0, 0%, 52%, 0.3);
+}
+
+li.light {
+  background: var(--LIGHT-MODE-BG);
+  color: var(--DARK-BLUE-TXT);
+}
+
+button.light,
+.borders li.light {
+  box-shadow: 0 2px 4px hsla(0, 0%, 52%, 0.3);
 }

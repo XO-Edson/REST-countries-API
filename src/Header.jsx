@@ -4,7 +4,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
   };
 
   return (
-    <header>
+    <header className={!darkMode ? "light" : ""}>
       <h1>Where in the world?</h1>
       <h5 onClick={toggleDarkMode}>{darkMode ? "Light Mode" : "Dark Mode"}</h5>
     </header>

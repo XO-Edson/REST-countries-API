@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 
-export const CountryDetails = ({ data }) => {
+export const CountryDetails = ({ data, darkMode }) => {
   const { name } = useParams();
   const countryInfo = data.find((country) => country.name.common === name);
   console.log(countryInfo);
@@ -47,7 +47,7 @@ export const CountryDetails = ({ data }) => {
     <>
       <div className="search-bar">
         <Link to="/">
-          <button>Back</button>
+          <button className={!darkMode ? "light" : ""}>Back</button>
         </Link>
       </div>
       <div className="country-details">
@@ -58,25 +58,48 @@ export const CountryDetails = ({ data }) => {
 
           <div className="details-info">
             <div>
-              <p>Native Name : {getNativeName()}</p>
-              <p>Population : {countryInfo.population}</p>
-              <p>Region : {countryInfo.region}</p>
-              <p>Sub Region :{countryInfo.subregion}</p>
-              <p>Capital :{countryInfo.capital}</p>
+              <p>
+                <span className="bold">Native Name : </span> {getNativeName()}
+              </p>
+              <p>
+                <span className="bold">Population :</span>{" "}
+                {countryInfo.population}
+              </p>
+              <p>
+                <span className="bold">Region :</span> {countryInfo.region}
+              </p>
+              <p>
+                <span className="bold">Sub Region :</span>
+                {countryInfo.subregion}
+              </p>
+              <p>
+                <span className="bold">Capital :</span>
+                {countryInfo.capital}
+              </p>
             </div>
 
             <div>
-              <p>Top Level Domain :{countryInfo.tld}</p>
-              <p>Currencies : {getCurrency()}</p>
-              <p>Languages :{getlanguages()}</p>
+              <p>
+                <span className="bold">Top Level Domain :</span>
+                {countryInfo.tld}
+              </p>
+              <p>
+                <span className="bold">Currencies :</span> {getCurrency()}
+              </p>
+              <p>
+                <span className="bold">Languages :</span>
+                {getlanguages()}
+              </p>
             </div>
           </div>
 
           <div className="borders">
             <ul>
-              <p>Border Countries:</p>
+              <h4>Border Countries:</h4>
               {countryInfo.borders.map((borderCountry, index) => (
-                <li key={index}>{borderCountry}</li>
+                <li key={index} className={!darkMode ? "light" : ""}>
+                  {borderCountry}
+                </li>
               ))}
             </ul>
           </div>
